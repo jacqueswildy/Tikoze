@@ -29,13 +29,13 @@ namespace Tikoze
             SqlCommand cmd = new SqlCommand(sqlText, connection);
 
             //Add parameters
-            if(sqlText.Contains('@ArtistName'))
+            if(sqlText.Contains("@ArtistName"))
                 cmd.Parameters.AddWithValue("@ArtistName", o.ArtistName);
-            if(sqlText.Contains('@ReleaseName'))
+            if(sqlText.Contains("@ReleaseName"))
                 cmd.Parameters.AddWithValue("@ReleaseName", o.ReleaseName);
-            if(sqlText.Contains('@SongName'))
+            if(sqlText.Contains("@SongName"))
                 cmd.Parameters.AddWithValue("@SongName", o.SongName);
-            if(sqlText.Contains('@SongLyrics'))
+            if(sqlText.Contains("@SongLyrics"))
                 cmd.Parameters.AddWithValue("@SongLyrics", o.SongLyrics);
             /*
             if(sqlText.Contains(''))
@@ -43,6 +43,8 @@ namespace Tikoze
             if(sqlText.Contains(''))
                 cmd.Parameters.AddWithValue("",);
              */
+
+            return cmd;
 
         }//end ParameterizeQuery()
 

@@ -20,6 +20,7 @@ namespace Tikoze
         string SongLastModifiedDate { get; set; }
         string SongValidationCount { get; set; }
         string SongGenre { get; set; }
+        string SongSnippet { get; set; }
     }//End of IMusic interface
     public class Music : IMusic
     {
@@ -37,8 +38,10 @@ namespace Tikoze
         public string SongLastModifiedDate { get; set; }
         public string SongValidationCount { get; set; }
         public string SongGenre { get; set; }
+        public string SongSnippet { get; set; }
         public string SearchText { get; set; }
         public string SearchResults { get; set; }
+
         #endregion Properties
 
         #region Constructors
@@ -50,7 +53,7 @@ namespace Tikoze
         #endregion Constructors
 
         #region Methods
-        public string ChooseSql(int constraint, string searchType)
+        public string ChooseSql(int constraint, int searchTypeInt, int pageNumber)
         {
             string sqlText = "";
             switch (constraint)
@@ -75,7 +78,14 @@ namespace Tikoze
                     sqlText = "EXEC sp_UpdateMusic";
                     break;
                 case 3://search
-                    sqlText = "SELECT * FROM MUSICDATABASEVIEW WHERE @" + searchType + " LIKE ('%' + @SearchText + '%')";
+                    sqlText = "SELECT TOP 10 ArtistName, MusicalReleaseName, SongName, SongSnippet FROM ";
+                    sqlText += "(SELECT TOP " + pageNumber*10;
+                    sqlText += " ArtistName, MusicalReleaseName, SongName, SongSnippet FROM MUSICDATABASEVIEW AS T1 ";
+                    sqlText += "WHERE ";
+                    sqlText += .Music.DefineSearchType(searchTypeInt);
+                    sqlText += " LIKE ('%' + @SearchText + '%') ";
+                    sqlText += "ORDER BY SongViews ASC";
+                    sqlText += "AS T2 ORDER BY SongViews DESC";
                     break;
                 default:
                     sqlText = String.Empty;
@@ -84,6 +94,31 @@ namespace Tikoze
 
             return sqlText;
         }//end ChooseSql() function
+
+        public static string DefineSearchType(int choice)
+        {
+            string searchType = string.Empty;
+
+            switch (choice) 
+            {
+                case 0: //lyrics
+                    searchType = "SongLyrics";
+                    break;
+                case 1: //song titles
+                    searchType = "SongName";
+                    break;
+                case 2: //artists
+                    searchType = "ArtistName";
+                    break;
+                case 3: //albums
+                    searchType = "MusicalReleaseName";
+                    break;
+                default: //should never happen
+                    break;
+            }//end switch
+
+            return searchType;
+        }//end DefineSearchType()
 
 
         #endregion Methods

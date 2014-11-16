@@ -250,6 +250,7 @@
   <ItemGroup>
     <Content Include="App_Code\Music.cs" />
     <Content Include="App_Code\Database.cs" />
+    <Content Include="App_Code\Format.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="About.aspx.cs">
