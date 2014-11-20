@@ -53,10 +53,10 @@ namespace Tikoze
         #endregion Constructors
 
         #region Methods
-        public string ChooseSql(int constraint, int searchTypeInt, int pageNumber)
+        public static string ChooseSql(int sqlType, int searchTypeInt, int pageNumber)
         {
             string sqlText = "";
-            switch (constraint)
+            switch (sqlType)
             {
                 case 0://insert
                     sqlText = "EXEC InsertNewSong ";
@@ -80,11 +80,11 @@ namespace Tikoze
                 case 3://search
                     sqlText = "SELECT TOP 10 ArtistName, MusicalReleaseName, SongName, SongSnippet FROM ";
                     sqlText += "(SELECT TOP " + pageNumber*10;
-                    sqlText += " ArtistName, MusicalReleaseName, SongName, SongSnippet FROM MUSICDATABASEVIEW AS T1 ";
+                    sqlText += " ArtistName, MusicalReleaseName, SongName, SongSnippet, SongViews FROM MUSICDATABASEVIEW AS T1 ";
                     sqlText += "WHERE ";
-                    sqlText += .Music.DefineSearchType(searchTypeInt);
-                    sqlText += " LIKE ('%' + @SearchText + '%') ";
-                    sqlText += "ORDER BY SongViews ASC";
+                    sqlText += Music.DefineSearchType(searchTypeInt);
+                    sqlText += " LIKE ('%' + @SongLyrics + '%') ";
+                    sqlText += "ORDER BY SongViews ASC) ";
                     sqlText += "AS T2 ORDER BY SongViews DESC";
                     break;
                 default:

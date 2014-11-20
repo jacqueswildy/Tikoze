@@ -11,7 +11,7 @@ namespace Tikoze
     public class Database
     {
         #region connectionString
-        private static string GetConnectionString()
+        public static string GetConnectionString()
         {
             string connectionString =
             ConfigurationManager.ConnectionStrings["JacquesWildyConnection"].ConnectionString;
@@ -20,7 +20,7 @@ namespace Tikoze
         #endregion connectionString
 
         #region DataProtection
-        public SqlCommand ParameterizeQuery(string connectionString, string sqlText, Music o) 
+        public static SqlCommand ParameterizeQuery(string sqlText, Music o) 
         {
             //create SqlConnection object with database connection string
             SqlConnection connection = new SqlConnection(GetConnectionString());
@@ -52,7 +52,7 @@ namespace Tikoze
 
         #region Search
 
-        public DataTable Search(SqlCommand cmd, SqlConnection connection) 
+        public static DataTable Search(SqlCommand cmd, SqlConnection connection) 
         {
             //connect and retrieve the data
             try

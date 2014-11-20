@@ -10,7 +10,7 @@
 namespace Tikoze {
     
     
-    public partial class _Default {
+    public partial class Search {
         
         /// <summary>
         /// searchBox control.
@@ -22,40 +22,40 @@ namespace Tikoze {
         protected global::System.Web.UI.WebControls.TextBox searchBox;
         
         /// <summary>
-        /// songName control.
+        /// songNameRB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton songName;
+        protected global::System.Web.UI.WebControls.RadioButton songNameRB;
         
         /// <summary>
-        /// songLyrics control.
+        /// songLyricsRB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton songLyrics;
+        protected global::System.Web.UI.WebControls.RadioButton songLyricsRB;
         
         /// <summary>
-        /// artistName control.
+        /// artistNameRB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton artistName;
+        protected global::System.Web.UI.WebControls.RadioButton artistNameRB;
         
         /// <summary>
-        /// musicalReleaseName control.
+        /// musicalReleaseNameRB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton musicalReleaseName;
+        protected global::System.Web.UI.WebControls.RadioButton musicalReleaseNameRB;
         
         /// <summary>
         /// searchButton control.
@@ -74,5 +74,23 @@ namespace Tikoze {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal searchResults;
+        
+        /// <summary>
+        /// addSongMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal addSongMessage;
+        
+        /// <summary>
+        /// searchNavigation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal searchNavigation;
     }
 }

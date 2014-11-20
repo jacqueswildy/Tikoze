@@ -6,31 +6,28 @@
         <hgroup>
             <h1></h1>
         </hgroup>
+
+        <!--Search-->
         <div class="form-group form-group-lg form-horizontal">
             <label class="col-sm-2 control-label sr-only" for="formGroupInputLarge">Search</label>
             <div class="row">
                 <div class="col-sm-10">
-                    <input class="form-control" type="search" id="formGroupInputLarge" placeholder="Search for lyrics, artists, song titles or albums">
+                    <!-- <input class="form-control" type="search" id="formGroupInputLarge" placeholder="Search for lyrics, artists, song titles or albums"> -->
+                    <asp:TextBox ID="searchBox" runat="server" CssClass="form-control"></asp:TextBox>
                     <div>
-                        <label class="radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> lyrics
-                        </label>
-                        <label class="radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> artists
-                        </label>
-                        <label class="radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> song titles
-                        </label>
-                        <label class="radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4"> albums
-                        </label>
+                        <asp:RadioButton ID="songName" runat="server" CssClass="radio-inline" Checked="True" Text="Song Name" GroupName="searchOptions" />
+                        <asp:RadioButton ID="songLyrics" runat="server" CssClass="radio-inline" Checked="False" Text="Lyrics" GroupName="searchOptions" />
+                        <asp:RadioButton ID="artistName" runat="server" CssClass="radio-inline" Checked="False" Text="Artist" GroupName="searchOptions" />
+                        <asp:RadioButton ID="musicalReleaseName" runat="server" CssClass="radio-inline" Checked="False" Text="Album" GroupName="searchOptions" />
                     </div>
                 </div>
                 <div class="col-sm-2">
-                    <button type="submit" class="btn btn-default">Search</button>
+                    <asp:Button ID="searchButton" runat="server" Text="Search" Cssclass ="btn btn-success" OnClick="Button1_Click" />
                 </div>
             </div>
         </div>
+        <!--End Search-->
+
     </div><!--end container-->
 
     <div class="container">
@@ -42,6 +39,10 @@
             <button type="button" class="btn btn-success btn-lg center-block">Add a song &raquo;</button>
         </div>
     </div><!--end container-->
+
+    <div class="container"><!--search-->
+        <asp:Literal ID="searchResults" runat="server"></asp:Literal>
+    </div><!--end search-->
 
     <div class="container">
         <div class="row">
@@ -83,7 +84,7 @@
                     <li>View Song Title #5 </li>
                 </ol>
             </div><!--end column-->
-        </div>
+        </div><!--end row div-->
     </div><!--end container-->
     
     

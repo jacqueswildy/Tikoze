@@ -29,11 +29,11 @@ namespace Tikoze
                         formattedSearchResults = "<div>";
 
                         //build linkable search title for each row of result
-                        formattedSearchResults += "<a href='" +href + "'></a> </br>";
+                        formattedSearchResults += "<a href='" +href + "'>" + dataRow["ArtistName"] + "</a> </br>";
 
                         //display the link
-                        formattedSearchResults += "<code>http://www.tikoze.com" + href + "</code>";
-                        formattedSearchResults += "</div>"; 
+                        formattedSearchResults += "<div class='.pre-scrollable'><code>http://www.tikoze.com" + href + "</code>";
+                        formattedSearchResults += "</div></div>"; 
                     }//end foreach loop
                     break;
                 case 1: //album
@@ -57,7 +57,7 @@ namespace Tikoze
                     foreach (DataRow dataRow in searchResults.Rows) 
                     {
                         //build href
-                        href = "/Display?artist=" + dataRow["ArtistName"] + "&album=" + dataRow["MusicalReleaseName"] + "&song=" + dataRow["SongName"];
+                        href = "/Display.aspx?artist=" + dataRow["ArtistName"] + "&album=" + dataRow["MusicalReleaseName"] + "&song=" + dataRow["SongName"];
 
                         //place all data in a div
                         formattedSearchResults = "<div>";
@@ -80,14 +80,14 @@ namespace Tikoze
                         formattedSearchResults = "<div>";
 
                         //build linkable search title for each row of result
-                        formattedSearchResults += "<a href='" +href + "'></a> </br>";
+                        formattedSearchResults += "<a href='" + href + "'>" + dataRow["SongName"] + " by " + dataRow["ArtistName"] + " from album " + dataRow["MusicalReleaseName"] + "</a> </br>";
 
                         //display the link
-                        formattedSearchResults += "<code>http://www.tikoze.com" + href + "</code> <br />";
+                        formattedSearchResults += "<div class='.pre-scrollable'><code>http://www.tikoze.com" + href + "</code> <br /></div>";
 
                         //add snippet
                         formattedSearchResults += "<div>" + dataRow["SongSnippet"];
-                        formattedSearchResults += "</div>"; 
+                        formattedSearchResults += "</div></div>"; 
                     }//end foreach loop
                     break;
             }//end switch
