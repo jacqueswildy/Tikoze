@@ -22,40 +22,13 @@ namespace Tikoze {
         protected global::System.Web.UI.WebControls.TextBox searchBox;
         
         /// <summary>
-        /// songNameRB control.
+        /// searchOptions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton songNameRB;
-        
-        /// <summary>
-        /// songLyricsRB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton songLyricsRB;
-        
-        /// <summary>
-        /// artistNameRB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton artistNameRB;
-        
-        /// <summary>
-        /// musicalReleaseNameRB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton musicalReleaseNameRB;
+        protected global::System.Web.UI.WebControls.RadioButtonList searchOptions;
         
         /// <summary>
         /// searchButton control.
