@@ -81,15 +81,56 @@ namespace Tikoze
                     sqlText = "EXEC sp_UpdateMusic"; 
                     break; 
                 case 3://search 
-                    sqlText = "SELECT TOP 10 ArtistName, MusicalReleaseName, SongName, SongSnippet FROM "; 
-                    sqlText += "(SELECT TOP " + pageNumber*10; 
-                    sqlText += " ArtistName, MusicalReleaseName, SongName, SongSnippet, SongViews FROM MUSICDATABASEVIEW AS T1 "; 
-                    sqlText += "WHERE "; 
-                    sqlText += Music.SearchTypeToString(searchTypeInt); 
-                    sqlText += " LIKE ('%' + @SongLyrics + '%') "; 
-                    sqlText += "ORDER BY SongViews ASC) "; 
-                    sqlText += "AS T2 ORDER BY SongViews DESC"; 
-                    break; 
+                    if (searchTypeInt == Music.SearchTypeToInt("SongName")) 
+                    {
+                        sqlText = "SELECT TOP 10 ArtistName, MusicalReleaseName, SongName, SongSnippet FROM ";
+                        sqlText += "(SELECT TOP " + pageNumber * 10;
+                        sqlText += " ArtistName, MusicalReleaseName, SongName, SongSnippet, SongViews FROM MUSICDATABASEVIEW AS T1 ";
+                        sqlText += "WHERE ";
+                        sqlText += Music.SearchTypeToString(searchTypeInt);
+                        sqlText += " LIKE ('%' + @" + Music.SearchTypeToString(searchTypeInt) + " + '%') ";
+                        sqlText += "ORDER BY SongViews ASC) ";
+                        sqlText += "AS T2 ORDER BY SongViews DESC";
+                        break;
+                    }
+                    else if (searchTypeInt == Music.SearchTypeToInt("SongLyrics")) 
+                    {
+                        sqlText = "SELECT TOP 10 ArtistName, MusicalReleaseName, SongName, SongSnippet FROM ";
+                        sqlText += "(SELECT TOP " + pageNumber * 10;
+                        sqlText += " ArtistName, MusicalReleaseName, SongName, SongSnippet, SongViews FROM MUSICDATABASEVIEW AS T1 ";
+                        sqlText += "WHERE ";
+                        sqlText += Music.SearchTypeToString(searchTypeInt);
+                        sqlText += " LIKE ('%' + @" + Music.SearchTypeToString(searchTypeInt) + " + '%') ";
+                        sqlText += "ORDER BY SongViews ASC) ";
+                        sqlText += "AS T2 ORDER BY SongViews DESC";
+                        break;
+                    }
+                    else if (searchTypeInt == Music.SearchTypeToInt("ArtistName")) 
+                    {
+                        sqlText = "SELECT DISTINCT TOP 10 ArtistName FROM ";
+                        sqlText += "(SELECT TOP " + pageNumber * 10;
+                        sqlText += " ArtistName FROM MUSICDATABASEVIEW AS T1 ";
+                        sqlText += "WHERE ";
+                        sqlText += Music.SearchTypeToString(searchTypeInt);
+                        sqlText += " LIKE ('%' + @" + Music.SearchTypeToString(searchTypeInt) + " + '%') ";
+                        sqlText += "ORDER BY ArtistName ASC) ";
+                        sqlText += "AS T2 ORDER BY ArtistName DESC";
+                        break;
+                    }
+                    else if (searchTypeInt == Music.SearchTypeToInt("MusicalReleaseName ")) 
+                    {
+                        sqlText = "SELECT DISTINCT TOP 10 ArtistName, MusicalReleaseName FROM ";
+                        sqlText += "(SELECT TOP " + pageNumber * 10;
+                        sqlText += " ArtistName, MusicalReleaseName FROM MUSICDATABASEVIEW AS T1 ";
+                        sqlText += "WHERE ";
+                        sqlText += Music.SearchTypeToString(searchTypeInt);
+                        sqlText += " LIKE ('%' + @" + Music.SearchTypeToString(searchTypeInt) + " + '%') ";
+                        sqlText += "ORDER BY MusicalReleaseName ASC) ";
+                        sqlText += "AS T2 ORDER BY MusicalReleaseName DESC";
+                        break;
+                    }
+                    break;
+
                 default: 
                     sqlText = String.Empty; 
                     break; 
@@ -116,9 +157,9 @@ namespace Tikoze
                 case 3: //albums 
                     searchType = "MusicalReleaseName"; 
                     break; 
-                default: //should never happen but if so, default to songName 
-                    searchType = "SongName"; 
-                    break; 
+                //default: //should never happen but if so, default to songName 
+                //    searchType = "SongName"; 
+                //    break; 
             }//end switch 
 
  
@@ -132,30 +173,30 @@ namespace Tikoze
             int searchTypeInt; 
 
  
-            if (formattedSearchType == "SongLyrics") 
-            { 
-                searchTypeInt = 0; 
-                return searchTypeInt; 
-            } 
-            else if (formattedSearchType == "SongName") 
+            if (formattedSearchType == "songlyrics") 
             { 
                 searchTypeInt = 1; 
                 return searchTypeInt; 
             } 
-            else if (formattedSearchType == "ArtistName") 
+            else if (formattedSearchType == "songname") 
+            { 
+                searchTypeInt = 0; 
+                return searchTypeInt; 
+            } 
+            else if (formattedSearchType == "artistname") 
             { 
                 searchTypeInt = 2; 
                 return searchTypeInt; 
             } 
-            else if (formattedSearchType == "MusicalReleaseName") 
+            else if (formattedSearchType == "musicalreleasename") 
             { 
                 searchTypeInt = 3; 
                 return searchTypeInt; 
-            } 
-            else  
-            { 
-                searchTypeInt = 0; 
-                return searchTypeInt; 
+            }
+            else
+            {
+                searchTypeInt = 0;
+                return searchTypeInt;
             } 
 
  

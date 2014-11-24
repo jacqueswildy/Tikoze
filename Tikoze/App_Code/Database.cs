@@ -31,8 +31,8 @@ namespace Tikoze
             //Add parameters
             if(sqlText.Contains("@ArtistName"))
                 cmd.Parameters.AddWithValue("@ArtistName", o.ArtistName);
-            if(sqlText.Contains("@ReleaseName"))
-                cmd.Parameters.AddWithValue("@ReleaseName", o.ReleaseName);
+            if(sqlText.Contains("@MusicalReleaseName"))
+                cmd.Parameters.AddWithValue("@MusicalReleaseName", o.ReleaseName);
             if(sqlText.Contains("@SongName"))
                 cmd.Parameters.AddWithValue("@SongName", o.SongName);
             if(sqlText.Contains("@SongLyrics"))

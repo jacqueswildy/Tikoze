@@ -125,12 +125,20 @@ namespace Tikoze
             string query = Music.ChooseSql(3, sType, pgNumber); 
 
 
-            Music search = new Music(); 
+             
 
- 
-            search.SongLyrics = sTerms; 
+            #region Add Data to Search Parameter
 
- 
+            Music search = new Music();
+
+            if (sType == Music.SearchTypeToInt("SongName")) { search.SongName = sTerms; }
+            else if (sType == Music.SearchTypeToInt("SongLyrics")) { search.SongLyrics = sTerms; }
+            else if (sType == Music.SearchTypeToInt("ArtistName")) { search.ArtistName = sTerms; }
+            else if (sType == Music.SearchTypeToInt("MusicalReleaseName")) { search.ReleaseName = sTerms; }
+
+            #endregion Add Data to Search Parameter
+
+
             //create SqlConnection object with database connection string 
             SqlConnection connection = new SqlConnection(Database.GetConnectionString()); 
 
@@ -141,11 +149,8 @@ namespace Tikoze
 
  
             return results; 
-
-
  
         }//end SearchDatabase() 
-
  
         protected void Search_Click(object sender, EventArgs e) 
         { 
@@ -163,9 +168,7 @@ namespace Tikoze
             //redirect page to newly created url 
             Response.Redirect(url, true); 
 
- 
         }//Search_Click() 
 
- 
     }//end class Search: System.Web.UI.Page 
 }//end namespace Tikoze 
