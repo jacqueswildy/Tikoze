@@ -13,30 +13,75 @@ namespace Tikoze {
     public partial class Display {
         
         /// <summary>
-        /// searchResults control.
+        /// searchBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal searchResults;
+        protected global::System.Web.UI.WebControls.TextBox searchBox;
         
         /// <summary>
-        /// addSongMessage control.
+        /// searchOptions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal addSongMessage;
+        protected global::System.Web.UI.WebControls.RadioButtonList searchOptions;
         
         /// <summary>
-        /// searchNavigation control.
+        /// searchButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal searchNavigation;
+        protected global::System.Web.UI.WebControls.Button searchButton;
+        
+        /// <summary>
+        /// share control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl share;
+        
+        /// <summary>
+        /// songMetaDataDisplay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl songMetaDataDisplay;
+        
+        /// <summary>
+        /// lyricsVerificationDisplay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lyricsVerificationDisplay;
+        
+        /// <summary>
+        /// songBodyDisplay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl songBodyDisplay;
+        
+        /// <summary>
+        /// songFooterDisplay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl songFooterDisplay;
     }
 }

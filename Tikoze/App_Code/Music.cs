@@ -73,8 +73,8 @@ namespace Tikoze
                     sqlText += "@NewSongLyrics = @SongLyrics;"; 
                     break; 
                 case 1://retrieve 
-                    sqlText = "SELECT * FROM MUSICDATABASEVIEW WHERE "; 
-                    sqlText += "ArtistName=@ArtistName AND MusicalReleaseName=@ReleaseName "; 
+                    sqlText = "SELECT * FROM MUSICDATABASEVIEW WHERE ";
+                    sqlText += "ArtistName=@ArtistName AND MusicalReleaseName=@MusicalReleaseName "; 
                     sqlText += "AND SongName=@SongName"; 
                     break; 
                 case 2://update 
@@ -117,7 +117,7 @@ namespace Tikoze
                         sqlText += "AS T2 ORDER BY ArtistName DESC";
                         break;
                     }
-                    else if (searchTypeInt == Music.SearchTypeToInt("MusicalReleaseName ")) 
+                    else if (searchTypeInt == Music.SearchTypeToInt("MusicalReleaseName")) 
                     {
                         sqlText = "SELECT DISTINCT TOP 10 ArtistName, MusicalReleaseName FROM ";
                         sqlText += "(SELECT TOP " + pageNumber * 10;
@@ -130,14 +130,20 @@ namespace Tikoze
                         break;
                     }
                     break;
-
+                case 4: //get search metadata
+                    sqlText = "SELECT COUNT(DISTINCT " + Music.SearchTypeToString(searchTypeInt) + ") AS TotalRowCount ";
+                    sqlText += "FROM FROM MUSICDATABASEVIEW WHERE ";
+                    sqlText += Music.SearchTypeToString(searchTypeInt);
+                    sqlText += " LIKE ('%' + @" + Music.SearchTypeToString(searchTypeInt) + " + '%') ";
+                    break;
                 default: 
                     sqlText = String.Empty; 
                     break; 
             }//end switch 
 
              return sqlText; 
-        }//end ChooseSql() function 
+        }//end ChooseSql(int sqlType, int searchTypeInt, int pageNumber) function 
+
 
         public static string SearchTypeToString(int choice) 
         { 
@@ -157,6 +163,12 @@ namespace Tikoze
                 case 3: //albums 
                     searchType = "MusicalReleaseName"; 
                     break; 
+                case 4: //search metadata
+                    searchType = "SearchMetaData";
+                    break;
+                case 5: //song
+                    searchType = "song";
+                    break;
                 //default: //should never happen but if so, default to songName 
                 //    searchType = "SongName"; 
                 //    break; 
@@ -193,6 +205,16 @@ namespace Tikoze
                 searchTypeInt = 3; 
                 return searchTypeInt; 
             }
+            else if (formattedSearchType == "searchmetadata")
+            {
+                searchTypeInt = 4;
+                return searchTypeInt;
+            }
+            else if (formattedSearchType == "song")
+            {
+                searchTypeInt = 5;
+                return searchTypeInt;
+            }
             else
             {
                 searchTypeInt = 0;
@@ -202,11 +224,7 @@ namespace Tikoze
  
         }//end SearchTypeToInt() 
 
- 
-
- 
         #endregion Methods 
 
- 
     }//end Music class 
 }//end namespace 

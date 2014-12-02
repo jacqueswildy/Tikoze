@@ -208,6 +208,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Tikoze - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Tikoze - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -258,6 +260,7 @@
     <Compile Include="Add.aspx.designer.cs">
       <DependentUpon>Add.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\AppWide.cs" />
     <Compile Include="App_Code\Music.cs" />
     <Compile Include="App_Code\Database.cs" />
     <Compile Include="App_Code\Format.cs" />

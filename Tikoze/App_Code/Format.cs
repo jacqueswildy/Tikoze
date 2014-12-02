@@ -1,7 +1,9 @@
 ﻿using System; 
 using System.Collections.Generic; 
 using System.Linq; 
-using System.Web; 
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using System.Data; 
 using System.Data.SqlClient; 
 
@@ -30,11 +32,12 @@ namespace Tikoze
  
  
                          //place all data in a div 
-                         formattedSearchResults += "<div>"; 
- 
- 
+                         formattedSearchResults += "<div>";
+
+
                          //build linkable search title for each row of result 
-                         formattedSearchResults += "<a href='" +href + "'></a> </br>"; 
+                         formattedSearchResults += "<a href='" + href + "'>" + dataRow["SongName"] + " by " + dataRow["ArtistName"];
+                         formattedSearchResults += " from album " + dataRow["MusicalReleaseName"] + "</a> </br>";  
  
  
                          //display the link 
@@ -58,7 +61,8 @@ namespace Tikoze
  
  
                          //build linkable search title for each row of result 
-                         formattedSearchResults += "<a href='" + href + "'>" + dataRow["SongName"] + " by " + dataRow["ArtistName"] + " from album " + dataRow["MusicalReleaseName"] + "</a> </br>"; 
+                         formattedSearchResults += "<a href='" + href + "'>" + dataRow["SongName"] + " by " + dataRow["ArtistName"];
+                         formattedSearchResults += " from album " + dataRow["MusicalReleaseName"] + "</a> </br>"; 
  
                          //display the link 
                          formattedSearchResults += "<div class='.pre-scrollable'><code>http://www.tikoze.com" + href + "</code> <br /></div>"; 
@@ -108,7 +112,8 @@ namespace Tikoze
  
  
                          //build linkable search title for each row of result 
-                         formattedSearchResults += "<a href='" + href + "'></a> </br>"; 
+                         formattedSearchResults += "<a href='" + href + "'>" + dataRow["MusicalReleaseName"] + " by " + dataRow["ArtistName"];
+                         formattedSearchResults += "</a> </br>"; 
  
  
                          //display the link 
@@ -121,5 +126,76 @@ namespace Tikoze
  
              return formattedSearchResults; 
          }//end FormatSearchResults() 
+
+         public static int ProcessSearchMetaData(DataTable metadata) 
+         {
+             int totalRows = 0;
+             foreach (DataRow dataRow in metadata.Rows)
+             {
+                 try 
+                 {
+                     totalRows = Convert.ToInt32(dataRow["TotalRowCount"]);
+                 }
+                 catch(Exception e) 
+                 {
+                     throw e;
+                 }
+                 finally 
+                 {
+                     totalRows = 0;
+                 }
+             }//end foreach
+
+             return totalRows;
+         }//end ProcessSearchMetaData()
+         public static int CountSearchResults(DataTable searchResults) 
+         {
+             int rowCount = searchResults.Rows.Count;
+
+             return rowCount;
+         }//end CountSearchResults()
+
+         public static string FormatSongBody(DataTable myTable) 
+         {
+             string songBody = string.Empty;
+
+             foreach (DataRow dataRow in myTable.Rows) 
+             {
+                 songBody += "<div style ='line-height:80%;'>" + dataRow["SongLyrics"] + "</div>";
+             }//end foreach
+
+             return songBody;
+
+         }//end FormatSongBody()
+
+         public static string FormatSongMetaData(DataTable myTable)
+         {
+             string metadata = string.Empty;
+
+             foreach (DataRow dataRow in myTable.Rows)
+             {
+                 metadata += "Song Name: " + dataRow["SongName"];
+                 metadata += "<br />";
+                 metadata += "Album Name: " + dataRow["MusicalReleaseName"];
+                 metadata += "<br />";
+                 metadata += "Release Date: " + dataRow["SongDate"];
+             }//end foreach
+
+             return metadata;
+
+         }//end FormatSongMetaData()
+
+         public static string FormatSongFooterInfo(DataTable myTable)
+         {
+             string footerInfo = string.Empty;
+             foreach (DataRow dataRow in myTable.Rows)
+             {
+                 footerInfo += "Added on: " + dataRow["SongDate"];
+             }//end foreach
+
+             return footerInfo;
+
+         }//end FormatSongFooterInfo()
+
      }//end class Format  
  }//end namespace Tikoze 

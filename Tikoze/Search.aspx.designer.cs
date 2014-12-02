@@ -40,6 +40,15 @@ namespace Tikoze {
         protected global::System.Web.UI.WebControls.Button searchButton;
         
         /// <summary>
+        /// searchMetaData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal searchMetaData;
+        
+        /// <summary>
         /// searchResults control.
         /// </summary>
         /// <remarks>
@@ -58,12 +67,39 @@ namespace Tikoze {
         protected global::System.Web.UI.WebControls.Literal addSongMessage;
         
         /// <summary>
-        /// searchNavigation control.
+        /// firstButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal searchNavigation;
+        protected global::System.Web.UI.WebControls.Button firstButton;
+        
+        /// <summary>
+        /// previousButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button previousButton;
+        
+        /// <summary>
+        /// nextButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button nextButton;
+        
+        /// <summary>
+        /// lastButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button lastButton;
     }
 }

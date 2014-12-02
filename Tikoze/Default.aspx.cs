@@ -14,37 +14,26 @@ namespace Tikoze
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (this.Page.IsPostBack)
-                searchResults.Text = Server.HtmlDecode(SearchDatabase());
+
         }//end Page_Load()
 
-        protected string SearchDatabase() 
+        protected void Search_Click(object sender, EventArgs e)
         {
-            int searchType = 0; //lyrics
-            string searchTerms = Server.HtmlEncode(searchBox.Text);
-            int pageNumber = 1;
-
-            string query = Music.ChooseSql(3, searchType, pageNumber);
-
-            Music search = new Music();
-
-            search.SongLyrics = searchTerms;
-
-            //create SqlConnection object with database connection string
-            SqlConnection connection = new SqlConnection(Database.GetConnectionString());
-
-            DataTable myTable = Database.Search( Database.ParameterizeQuery(query, search), connection);
-
-            string results = Format.FormatSearchResults(myTable,3);
-
-            return results;
+            string stext = Server.HtmlEncode(searchBox.Text);
 
 
-        }//end SearchDatabase()
+            //get the radio button selection, convert it to string 
+            string stype = (searchOptions.SelectedItem == null) ? Music.SearchTypeToString(Convert.ToInt32("0")) : Music.SearchTypeToString(Convert.ToInt32(searchOptions.SelectedItem.Value));
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-        }//end Button1_Click()
+
+            //build url 
+            string url = "/Search?pg=1&stype=" + stype + "&stext=" + stext;
+
+
+            //redirect page to newly created url 
+            Response.Redirect(url, true);
+
+        }//Search_Click() 
 
     }//end class _Default:Page
 }//end namespace Tikoze
