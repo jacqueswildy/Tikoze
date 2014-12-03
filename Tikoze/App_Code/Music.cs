@@ -224,6 +224,16 @@ namespace Tikoze
  
         }//end SearchTypeToInt() 
 
+        public static string ProcessSingleLineTextBox(string text)
+        {
+            string processedText = string.Empty;
+
+            processedText = text.Trim();
+            processedText = processedText.ToLower();
+
+            return processedText;
+        }//end ProcessSingleLineTextBox()
+
         #endregion Methods 
 
     }//end Music class 

@@ -129,7 +129,9 @@ namespace Tikoze
                     pageNumber = Convert.ToInt32(Request.QueryString["pg"]);
                 }
                 catch (Exception e)
-                { }
+                {
+                    string error = e.Message;
+                }
                 finally 
                 {
                     pageNumber = 1;

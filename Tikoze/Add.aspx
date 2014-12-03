@@ -90,7 +90,9 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="sNameTextBox" runat="server" MaxLength="200"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="sNameTextBoxRequiredFieldValidator" runat="server" ErrorMessage="*Required" ControlToValidate="sNameTextBox" Display="Dynamic" Text="*Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="sNameTextBoxRequiredFieldValidator" runat="server" ErrorMessage="*Required" 
+                                            ControlToValidate="sNameTextBox" Display="Dynamic" Text="*Required" ForeColor="Red">
+                                        </asp:RequiredFieldValidator>
                                     </td>
                                 </tr><!--End of 1st Row-->
                                 <tr>
