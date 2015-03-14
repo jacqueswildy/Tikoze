@@ -29,20 +29,32 @@ namespace Tikoze
             SqlCommand cmd = new SqlCommand(sqlText, connection);
 
             //Add parameters
+
+            //artist info
             if(sqlText.Contains("@ArtistName"))
                 cmd.Parameters.AddWithValue("@ArtistName", o.ArtistName);
-            if(sqlText.Contains("@MusicalReleaseName"))
-                cmd.Parameters.AddWithValue("@MusicalReleaseName", o.ReleaseName);
+            if(sqlText.Contains("MusicianType"))
+                cmd.Parameters.AddWithValue("@MusicianType",o.MusicianType);
+
+            //album info
+            if (sqlText.Contains("@ReleaseName"))
+                cmd.Parameters.AddWithValue("@ReleaseName", o.ReleaseName);
+            if(sqlText.Contains("@ReleaseType"))
+                cmd.Parameters.AddWithValue("@ReleaseType", o.ReleaseType);
+            if(sqlText.Contains("@ReleaseYear"))
+                cmd.Parameters.AddWithValue("@ReleaseYear",o.ReleaseYear);
+
+            //song info
             if(sqlText.Contains("@SongName"))
                 cmd.Parameters.AddWithValue("@SongName", o.SongName);
             if(sqlText.Contains("@SongLyrics"))
                 cmd.Parameters.AddWithValue("@SongLyrics", o.SongLyrics);
-            /*
-            if(sqlText.Contains(''))
-                cmd.Parameters.AddWithValue("",);
-            if(sqlText.Contains(''))
-                cmd.Parameters.AddWithValue("",);
-             */
+            if(sqlText.Contains("@SongTrack"))
+                cmd.Parameters.AddWithValue("@SongTrack",o.SongTrack);
+            
+            //syntax
+            //if(sqlText.Contains(""))
+            //    cmd.Parameters.AddWithValue("",);
 
             return cmd;
 
@@ -77,6 +89,40 @@ namespace Tikoze
         }//end Search()
 
         #endregion Search
+
+        #region Insert
+
+        public static string Insert(SqlCommand cmd, SqlConnection connection) 
+        {
+            //feedback to user on whether the insert was successful
+            string success = "Success! Thank you for contributing to this project";
+            
+            int added = 0;
+
+            //connect and insert the data
+            try
+            {
+                using (connection)
+                {
+                    cmd.Connection = connection; //Here assign connection to command object
+                    connection.Open();
+                    added = cmd.ExecuteNonQuery();
+
+                    //update success variable
+                    success += "\n" + added.ToString() + " records inserted.";
+                }//end using(connection)
+            }//end try
+            catch (Exception err)
+            {
+                //if we have an error, return message
+                string message = err.Message;
+                return message;
+            }//end catch
+
+            return success;
+        }//end Insert()
+
+        #endregion Insert
 
     }//end class Database
 }//end namespace

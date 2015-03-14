@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration; 
 
 namespace Tikoze
 {
@@ -89,8 +92,8 @@ namespace Tikoze
                     stepValidation1.Visible = false;
 
                     //remove all leading and trailing white spaces and lower case
-                    string typeOfArtist = Music.ProcessSingleLineTextBox(mTypeOfTextBox.Text);
-                    string artist = Music.ProcessSingleLineTextBox(aNameTextBox.Text);
+                    string typeOfArtist = Music.LowerCaseAndTrim(mTypeOfTextBox.Text);
+                    string artist = Music.LowerCaseAndTrim(aNameTextBox.Text);
 
                     //validate type of artist
                     if (typeOfArtist != "solo" && typeOfArtist != "band") 
@@ -108,8 +111,8 @@ namespace Tikoze
                     //this may be revalidation on page post. If we don't reset this value, this function will always return true
                     stepValidation2.Visible = false;
 
-                    string album = Music.ProcessSingleLineTextBox(mRNameTextBox.Text);
-                    string typeOfAlbum = Music.ProcessSingleLineTextBox(mRTypeOfTextBox.Text);
+                    string album = Music.LowerCaseAndTrim(mRNameTextBox.Text);
+                    string typeOfAlbum = Music.LowerCaseAndTrim(mRTypeOfTextBox.Text);
                     int year;
 
                     //validate type of album
@@ -141,7 +144,7 @@ namespace Tikoze
                     //this may be revalidation on page post. If we don't reset this value, this function will always return true
                     stepValidation3.Visible = false;
 
-                    string song = Music.ProcessSingleLineTextBox(sNameTextBox.Text);
+                    string song = Music.LowerCaseAndTrim(sNameTextBox.Text);
                     int track;
 
                     //validate track
@@ -198,10 +201,46 @@ namespace Tikoze
             Label15.Text = sLyricsTextBoxLabel.Text;
             Label16.Text = Server.HtmlDecode(sLyricsTextBox.Text);
         }//end DisplayUserAnswers()
+
+        protected void InsertToDatabase(Music o) 
+        {
+            //prep work for a transparent Music.ChooseSQL()
+            // case insert = 0
+            int sqlType = 0;
+            //these won't be used. I choose 0 as a default value
+            int sType = 0;
+            int pgNumber = 0;
+
+            //get the query text
+            string query = Music.ChooseSql(sqlType, sType, pgNumber);
+
+            //create SqlConnection object with database connection string 
+            SqlConnection connection = new SqlConnection(Database.GetConnectionString());
+
+            //parameterize query
+            SqlCommand cmd = Database.ParameterizeQuery(query, o);
+
+            //search database
+            string insertStatus = Database.Insert(cmd, connection);
+
+            Label17.Text = Server.HtmlDecode(insertStatus);
+
+        }//end InsertToDatabase(Music o)
         
 
         protected void Wizard1_FinishButtonClick1(object sender, WizardNavigationEventArgs e)
         {
+            Music newSong = new Music();
+            newSong.ArtistName = Server.HtmlEncode(aNameTextBox.Text);
+            newSong.MusicianType = Server.HtmlEncode(mTypeOfTextBox.Text);
+            newSong.ReleaseName = Server.HtmlEncode(mRNameTextBox.Text);
+            newSong.ReleaseType = Server.HtmlEncode(mRTypeOfTextBox.Text);
+            newSong.ReleaseYear = Convert.ToInt32(mRYearReleasedTextBox.Text);
+            newSong.SongLyrics = Server.HtmlEncode(sLyricsTextBox.Text);
+            newSong.SongName = Server.HtmlEncode(sNameTextBox.Text);
+            newSong.SongTrack = Convert.ToInt32(sTrackTextBox.Text);
+
+            InsertToDatabase(newSong);
 
         }//end FinishButtonClick()
 
@@ -216,11 +255,22 @@ namespace Tikoze
                 CalculateProgressBar(sender, e);
             }//end if(hasErrors)
 
-            //if this is the results page, attach the user inputs to the labels so user can review his/her answers
+            //process the lyrics
+            if (e.NextStepIndex == 4)
+            {
+                string processedLyrics = Music.FormatEOL(sLyricsTextBox.Text);
+                sLyricsTextBox.Text = Server.HtmlDecode(processedLyrics);
+
+                //if this is the results page, attach the user inputs 
+                //to the labels so user can review his/her answers
+                DisplayUserAnswers();
+            }//end if (e.NextStepIndex == 4)
+
+            
             if (e.NextStepIndex == 4) 
             {
-                DisplayUserAnswers();
-            }//end if (e.NextStepIndex == 5)
+                
+            }//end if (e.NextStepIndex == 4)
             
         }//end NextButtonClick()
   

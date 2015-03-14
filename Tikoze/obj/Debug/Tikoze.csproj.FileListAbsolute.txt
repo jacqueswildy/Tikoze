@@ -35,3 +35,39 @@ E:\Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze
 E:\Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\obj\Debug\Tikoze.csprojResolveAssemblyReference.cache
 E:\Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\obj\Debug\Tikoze.dll
 E:\Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\obj\Debug\Tikoze.pdb
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\Tikoze.dll.config
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\Tikoze.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\Tikoze.pdb
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\Antlr3.Runtime.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\AspNet.ScriptManager.jQuery.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\DotNetOpenAuth.AspNet.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\DotNetOpenAuth.Core.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\DotNetOpenAuth.OAuth.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\DotNetOpenAuth.OpenId.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\EntityFramework.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\EntityFramework.SqlServer.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\Microsoft.AspNet.FriendlyUrls.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\Microsoft.AspNet.Membership.OpenAuth.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\Microsoft.ScriptManager.MSAjax.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\Microsoft.ScriptManager.WebForms.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\Microsoft.Web.Infrastructure.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\System.Web.Optimization.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\System.Web.Providers.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\WebGrease.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\EntityFramework.xml
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\EntityFramework.SqlServer.xml
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\System.Web.Providers.xml
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\DotNetOpenAuth.Core.xml
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\DotNetOpenAuth.OAuth.xml
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\DotNetOpenAuth.OpenId.xml
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\DotNetOpenAuth.AspNet.xml
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\Microsoft.AspNet.Membership.OpenAuth.xml
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\bin\Microsoft.AspNet.FriendlyUrls.xml
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\obj\Debug\Tikoze.dll
+E:\xOld Desktop\Users\Public\Documents\zOld Classes\IT Project Management\Project\Group Work\Phase 4 - Development\Tikoze\Tikoze\obj\Debug\Tikoze.pdb

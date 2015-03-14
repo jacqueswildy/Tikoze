@@ -36,7 +36,8 @@ namespace Tikoze
 
 
                          //build linkable search title for each row of result 
-                         formattedSearchResults += "<a href='" + href + "'>" + dataRow["SongName"] + " by " + dataRow["ArtistName"];
+                         formattedSearchResults += "<a href=\"" + href +"\"" + ">"; 
+                         formattedSearchResults += dataRow["SongName"] + " by " + dataRow["ArtistName"];
                          formattedSearchResults += " from album " + dataRow["MusicalReleaseName"] + "</a> </br>";  
  
  
@@ -196,6 +197,55 @@ namespace Tikoze
              return footerInfo;
 
          }//end FormatSongFooterInfo()
+
+         //format chart title
+         public static string GetChartTitle(string chartTitle) 
+         {
+             string formattedChartTitle = "<hgroup><h3>";
+             formattedChartTitle += chartTitle;
+             formattedChartTitle += "</h3></hgroup>";
+
+             return formattedChartTitle;
+         }//end GetChartTitle()
+
+         public static string ProcessChart(DataTable myTable) 
+         {
+             /**
+             *
+             -May need to restructure all of the procedures in this class. look into making the looping into a separate procedure
+             -open <ol>, loop through songs
+                -open <li>, add song info
+                -add link info
+             -close </ol>, 
+             *
+             **/
+             string chartBody = "<ol>";
+
+             foreach (DataRow dataRow in myTable.Rows) 
+             {                                  
+                 //build hrefs 
+                 string hrefSong, hrefArtist = string.Empty;
+                 hrefSong = "/Display.aspx?artist=" + dataRow["ArtistName"] + "&album=" + dataRow["MusicalReleaseName"] + "&song=" + dataRow["SongName"];
+                 hrefArtist = "/Display.aspx?artist=" + dataRow["ArtistName"];
+
+                 //start building the chart
+                 chartBody += "<li><a href=\"";
+                 chartBody += hrefSong;
+                 chartBody += "\">";
+                 chartBody += dataRow["SongName"];
+                 chartBody += "</a>";
+                 chartBody += " by <a href=\"";
+                 chartBody += hrefArtist;
+                 chartBody += "\">";
+                 chartBody += dataRow["ArtistName"];
+                 chartBody += "</a>";
+                 chartBody += "</li>";
+             }//end foreach()
+
+             chartBody += "</ol>";
+             
+             return chartBody;
+         }//end ProcessChart()
 
      }//end class Format  
  }//end namespace Tikoze 

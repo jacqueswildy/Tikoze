@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="JacquesWildyConnection-Web.config Connection String" description="JacquesWildyConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=g15ksp7p1x.database.windows.net,1433;Initial Catalog=JacquesWildy;Persist Security Info=True;User ID=JacquesWildy;Password=ARPaSol.1" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="E:\\Classes\\IT\ Project\ Management\\Project\\Group\ Work\\Phase\ 4\ -\ Development\\Tikoze\\Tikoze\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='JacquesWildyConnection']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="E:\\xOld\ Desktop\\Users\\Public\\Documents\\zOld\ Classes\\IT\ Project\ Management\\Project\\Group\ Work\\Phase\ 4\ -\ Development\\Tikoze\\Tikoze\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='JacquesWildyConnection']/@connectionString" />
   </parameter>
 </parameters>

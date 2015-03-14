@@ -74,7 +74,7 @@ namespace Tikoze
                     break; 
                 case 1://retrieve 
                     sqlText = "SELECT * FROM MUSICDATABASEVIEW WHERE ";
-                    sqlText += "ArtistName=@ArtistName AND MusicalReleaseName=@MusicalReleaseName "; 
+                    sqlText += "ArtistName=@ArtistName AND MusicalReleaseName=@ReleaseName "; 
                     sqlText += "AND SongName=@SongName"; 
                     break; 
                 case 2://update 
@@ -108,7 +108,7 @@ namespace Tikoze
                     else if (searchTypeInt == Music.SearchTypeToInt("ArtistName")) 
                     {
                         sqlText = "SELECT DISTINCT TOP 10 ArtistName FROM ";
-                        sqlText += "(SELECT TOP " + pageNumber * 10;
+                        sqlText += "(SELECT DISTINCT TOP " + pageNumber * 10;
                         sqlText += " ArtistName FROM MUSICDATABASEVIEW AS T1 ";
                         sqlText += "WHERE ";
                         sqlText += Music.SearchTypeToString(searchTypeInt);
@@ -120,7 +120,7 @@ namespace Tikoze
                     else if (searchTypeInt == Music.SearchTypeToInt("MusicalReleaseName")) 
                     {
                         sqlText = "SELECT DISTINCT TOP 10 ArtistName, MusicalReleaseName FROM ";
-                        sqlText += "(SELECT TOP " + pageNumber * 10;
+                        sqlText += "(SELECT DISTINCT TOP " + pageNumber * 10;
                         sqlText += " ArtistName, MusicalReleaseName FROM MUSICDATABASEVIEW AS T1 ";
                         sqlText += "WHERE ";
                         sqlText += Music.SearchTypeToString(searchTypeInt);
@@ -224,7 +224,7 @@ namespace Tikoze
  
         }//end SearchTypeToInt() 
 
-        public static string ProcessSingleLineTextBox(string text)
+        public static string LowerCaseAndTrim(string text)
         {
             string processedText = string.Empty;
 
@@ -232,7 +232,67 @@ namespace Tikoze
             processedText = processedText.ToLower();
 
             return processedText;
-        }//end ProcessSingleLineTextBox()
+        }//end LowerCaseAndTrim()
+
+        public static string FormatEOL(string lyrics) 
+        {
+            string newLyrics = string.Empty;
+            string newLyricsPart = string.Empty;
+
+            string[] splitRawLyrics = null;
+
+            //split and add each line into an index of the string array
+            if (lyrics.Contains(Environment.NewLine))
+            {
+                splitRawLyrics = lyrics.Split(Environment.NewLine.ToCharArray());
+            }
+
+            foreach (string item in splitRawLyrics)
+            {
+                //do the formatting here
+                newLyricsPart = string.Format("{0} <br />", item);
+                newLyrics += newLyricsPart;//display formatted data in second Multiline TextBox
+
+            }//end foreach
+
+            return newLyrics;
+        }//end FormatEOL(string lyrics)
+
+        public static string FormatLetterCase(string lyrics)
+        {
+            //do some stuff
+            return lyrics;
+        }//end FormatLetterCase(string lyrics)
+
+        public static string FormatIntro(string lyrics)
+        {
+            //do some stuff
+            return lyrics;
+        }//end FormatIntro(string lyrics)
+
+        public static string FormatChorus(string lyrics)
+        {
+            //do some stuff
+            return lyrics;
+        }//end FormatChorus(string lyrics)
+
+        public static string FormatVerse(string lyrics)
+        {
+            //do some stuff
+            return lyrics;
+        }//end FormatVerse(string lyrics)
+
+        public static string FormatOutro(string lyrics)
+        {
+            //do some stuff
+            return lyrics;
+        }//end FormatOutro(string lyrics)
+
+        public static string CreateSnippet(string lyrics)
+        {
+            //do some stuff
+            return lyrics;
+        }//end CreateSnippet(string lyrics)
 
         #endregion Methods 
 
