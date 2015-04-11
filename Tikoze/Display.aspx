@@ -46,7 +46,7 @@
                         <span class="btn-default" id="twitter">Twitter</span>
                         <span class="btn-default" id="Instagram">Instagram</span>
                         <span class="dl-horizontal"></span>
-                        <span class="" id="link"><code>www.tikoze.com/Display?artist=default&album=default&song=default</code></span>
+                        <p><span class="" id="link"><code>www.tikoze.com/Display?artist=default&album=default&song=default</code></span></p>
                     </div><!--End share div-->
 
                     <!--DISPLAY SONG METADATA-->

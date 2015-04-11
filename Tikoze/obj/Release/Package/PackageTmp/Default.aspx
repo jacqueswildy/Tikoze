@@ -46,35 +46,16 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <hgroup>
-                    <h3>5 Most Popular Songs</h3>
-                </hgroup>
-                <ol>
-                    <li>Song Title number 1</li>
-                    <li>Second Song Title</li>
-                    <li>Song Title numero 3</li>
-                    <li>This is Song Title number 4</li>
-                    <li>View Song Title #5 </li>
-                </ol>
+            <div runat="server" id="chart1" class="col-md-4">
             </div><!--end column-->
 
-            <div class="col-md-4">
+            <div runat="server" id="chart2" class="col-md-4">
+
+            </div><!--end column-->
+
+            <div runat="server" id="chart3" class="col-md-4">
                 <hgroup>
                     <h3>5 Most Shared Songs</h3>
-                </hgroup>
-                <ol>
-                    <li>Song Title number 1</li>
-                    <li>Second Song Title</li>
-                    <li>Song Title numero 3</li>
-                    <li>This is Song Title number 4</li>
-                    <li>View Song Title #5 </li>
-                </ol>
-            </div><!--end column-->
-
-            <div class="col-md-4">
-                <hgroup>
-                    <h3>5 Most Recent Songs</h3>
                 </hgroup>
                 <ol>
                     <li>Song Title number 1</li>

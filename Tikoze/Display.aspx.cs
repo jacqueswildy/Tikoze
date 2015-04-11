@@ -47,7 +47,7 @@ namespace Tikoze
 
                         //add data to page
                         songMetaDataDisplay.InnerHtml = Server.HtmlDecode(Format.FormatSongMetaData(myTable));
-                        lyricsVerificationDisplay.InnerHtml = Server.HtmlDecode("Adding Verification Controls ...<br />");
+                        lyricsVerificationDisplay.InnerHtml = Server.HtmlDecode("<p>Adding Verification Controls ...</p>");
                         songBodyDisplay.InnerHtml = Server.HtmlDecode(Format.FormatSongBody(myTable));
                         songFooterDisplay.InnerHtml = Server.HtmlDecode(Format.FormatSongFooterInfo(myTable));
 

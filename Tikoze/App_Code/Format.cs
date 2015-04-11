@@ -175,11 +175,11 @@ namespace Tikoze
 
              foreach (DataRow dataRow in myTable.Rows)
              {
-                 metadata += "Song Name: " + dataRow["SongName"];
-                 metadata += "<br />";
-                 metadata += "Album Name: " + dataRow["MusicalReleaseName"];
-                 metadata += "<br />";
-                 metadata += "Release Date: " + dataRow["SongDate"];
+                 metadata += "<hgroup>";
+                 metadata += "<h4>Song Name: " + dataRow["SongName"] + "</h4>";
+                 metadata += "<h4>Album Name: " + dataRow["MusicalReleaseName"] + "</h4>";
+                 metadata += "<h4>Release Date: " + dataRow["SongDate"] + "</h4>";
+                 metadata += "</hgroup>";
              }//end foreach
 
              return metadata;
@@ -191,7 +191,7 @@ namespace Tikoze
              string footerInfo = string.Empty;
              foreach (DataRow dataRow in myTable.Rows)
              {
-                 footerInfo += "Added on: " + dataRow["SongDate"];
+                 footerInfo += "<p>Added on: " + dataRow["SongDate"] + "</p>";
              }//end foreach
 
              return footerInfo;
