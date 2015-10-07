@@ -176,10 +176,12 @@ namespace Tikoze
              foreach (DataRow dataRow in myTable.Rows)
              {
                  metadata += "<hgroup>";
-                 metadata += "<h4>Song Name: " + dataRow["SongName"] + "</h4>";
-                 metadata += "<h4>Album Name: " + dataRow["MusicalReleaseName"] + "</h4>";
-                 metadata += "<h4>Release Date: " + dataRow["SongDate"] + "</h4>";
+                 metadata += "<h4><strong>Song Name:</strong> " + dataRow["SongName"] + "</h4>";
+                 metadata += "<h4><strong>Artist Name:</strong> " + dataRow["ArtistName"] + "</h4>";
+                 metadata += "<h4><strong>Album Name:</strong> " + dataRow["MusicalReleaseName"] + "</h4>";
+                 metadata += "<h4><strong>Release Date:</strong> " + dataRow["MusicalReleaseYear"] + "</h4>";
                  metadata += "</hgroup>";
+                 metadata += "<hr />";
              }//end foreach
 
              return metadata;

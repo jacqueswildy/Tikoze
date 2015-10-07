@@ -38,34 +38,40 @@
 
 
                 <!--START SONG DISPLAY DIV-->
-                <div class="container">
-
-                    <!--DISPLAY SHARING LINKS TO SOCIAL MEDIA-->
-                    <div runat="server" class="container" id="share">
-                        <span class="btn-default" id="facebook">Facebook</span>
-                        <span class="btn-default" id="twitter">Twitter</span>
-                        <span class="btn-default" id="Instagram">Instagram</span>
-                        <span class="dl-horizontal"></span>
-                        <p><span class="" id="link"><code>www.tikoze.com/Display?artist=default&album=default&song=default</code></span></p>
-                    </div><!--End share div-->
+                <div class="col-sm-8">
+                    <div runat="server" class="row" id="share">
+                        <!--DISPLAY SHARING LINKS TO SOCIAL MEDIA-->
+                        <div runat="server" id="fb" class="col-xs-12" style="padding-bottom:2%;">
+                            <button class="btn btn-default" id="facebook">Facebook</button>                        
+                            <button class="btn btn-default" id="twitter">Twitter</button>                        
+                            <button class="btn btn-default" id="Instagram">Instagram</button>
+                            <button class="btn btn-default" id="Google+">Google+</button>
+                        </div><!--End social media div-->
+                        
+                        <div runat="server" class="row">
+                            <div runat="server" id="link" class="col-sm-12">
+                                <input name="link" value="www.tikoze.com/Display?artist=default&album=default&song=default" readonly class="col-xs-12"/>                                
+                            </div><!--End link div-->
+                        </div><!--wrapper to make sure the link goes on its own line-->
+                    </div><!--End share row -->
 
                     <!--DISPLAY SONG METADATA-->
-                    <div runat="server" class="container" id="songMetaDataDisplay">
+                    <div runat="server" class="col-sm-8" id="songMetaDataDisplay">
 
                     </div><!--End song metadata div-->
 
                     <!--DISPLAY LYRICS VERIFICATOIN-->
-                    <div runat="server" class="container" id="lyricsVerificationDisplay">
+                    <div runat="server" class="col-sm-8" id="lyricsVerificationDisplay">
 
                     </div><!--End lyrics verification-->
 
                     <!--DISPLAY BODY OF SONG-->
-                    <div runat="server" class="container" id="songBodyDisplay">
+                    <div runat="server" class="col-sm-8" id="songBodyDisplay">
 
                     </div><!--End body of song-->
 
                     <!--DISPLAY SONG FOOTER INFO-->
-                    <div runat="server" class="container" id="songFooterDisplay">
+                    <div runat="server" class="col-sm-8" id="songFooterDisplay">
 
                     </div><!--End footer info-->
 
@@ -75,36 +81,14 @@
 
             <!--START SIDE PANEL-->
             <div class="col-sm-4">
-                <div class="col-sm-12">
-                    <hgroup>
-                        <h3>5 Most Popular Songs</h3>
-                    </hgroup>
-                    <ol>
-                        <li>Song Title number 1</li>
-                        <li>Second Song Title</li>
-                        <li>Song Title numero 3</li>
-                        <li>This is Song Title number 4</li>
-                        <li>View Song Title #5 </li>
-                    </ol>
-                </div>
+                <div runat="server" class="col-sm-12" id="chart1" style="background-color:whitesmoke;"></div>
                 <div class="col-sm-12">
                     <hgroup>
                         <h3>Advertising</h3>
                     </hgroup>
                     <img src="//storage.googleapis.com/support-kms-prod/D8B422104CAC38F6FD84DA8614BD38C671C6">
                 </div><!--end ad div-->
-                <div class="col-sm-12">
-                    <hgroup>
-                        <h3>5 Most Shared Songs</h3>
-                    </hgroup>
-                    <ol>
-                        <li>Song Title number 1</li>
-                        <li>Second Song Title</li>
-                        <li>Song Title numero 3</li>
-                        <li>This is Song Title number 4</li>
-                        <li>View Song Title #5 </li>
-                    </ol>
-                </div>
+                <div runat="server" class="col-sm-12" id="chart2" style="background-color:whitesmoke;"></div>
                 <div class="col-sm-12">
                     <hgroup>
                         <h3>Advertising</h3>

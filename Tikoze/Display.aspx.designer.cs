@@ -49,6 +49,24 @@ namespace Tikoze {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl share;
         
         /// <summary>
+        /// fb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fb;
+        
+        /// <summary>
+        /// link control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl link;
+        
+        /// <summary>
         /// songMetaDataDisplay control.
         /// </summary>
         /// <remarks>
@@ -83,5 +101,23 @@ namespace Tikoze {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl songFooterDisplay;
+        
+        /// <summary>
+        /// chart1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chart1;
+        
+        /// <summary>
+        /// chart2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chart2;
     }
 }

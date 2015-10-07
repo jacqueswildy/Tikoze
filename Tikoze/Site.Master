@@ -16,6 +16,11 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <!-- Adding a background -->
+    <style type='text/css'>
+        body{background:#EEE url("E:\Classes\zProjects\Web Design Examples\texturedGrayBackground.png") repeat center top fixed;}
+        .info-less{height:100px;}
+    </style>
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -43,7 +48,7 @@
 
         </Scripts>
     </asp:ScriptManager>
-    <header>
+    <header>  
         <nav class="nav navbar-inverse" role="navigation">
             <div class="container-fluid">
 
@@ -57,6 +62,8 @@
                     </button>
 
                     <a class="navbar-brand" runat="server" href="~/">Ti Koze</a>
+
+                    
 
 
                     

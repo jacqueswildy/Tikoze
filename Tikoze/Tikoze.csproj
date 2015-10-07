@@ -261,6 +261,7 @@
       <DependentUpon>Add.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\AppWide.cs" />
+    <Compile Include="App_Code\Chart.cs" />
     <Compile Include="App_Code\Music.cs" />
     <Compile Include="App_Code\Database.cs" />
     <Compile Include="App_Code\Format.cs" />

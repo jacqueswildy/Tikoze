@@ -46,14 +46,13 @@
 
     <div class="container">
         <div class="row">
-            <div runat="server" id="chart1" class="col-md-4">
+            <div runat="server" id="chart1" class="col-md-4" style="background-color:white;">
             </div><!--end column-->
 
-            <div runat="server" id="chart2" class="col-md-4">
-
+            <div runat="server" id="chart2" class="col-md-4" style="background-color:white;">
             </div><!--end column-->
 
-            <div runat="server" id="chart3" class="col-md-4">
+            <div runat="server" id="chart3" class="col-md-4" style="background-color:white;">
                 <hgroup>
                     <h3>5 Most Shared Songs</h3>
                 </hgroup>

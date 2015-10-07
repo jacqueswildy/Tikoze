@@ -47,7 +47,7 @@ namespace Tikoze
 
                         //add data to page
                         songMetaDataDisplay.InnerHtml = Server.HtmlDecode(Format.FormatSongMetaData(myTable));
-                        lyricsVerificationDisplay.InnerHtml = Server.HtmlDecode("<p>Adding Verification Controls ...</p>");
+                        lyricsVerificationDisplay.InnerHtml = Server.HtmlDecode("<p><em>Adding Verification Controls ...</em></p>");
                         songBodyDisplay.InnerHtml = Server.HtmlDecode(Format.FormatSongBody(myTable));
                         songFooterDisplay.InnerHtml = Server.HtmlDecode(Format.FormatSongFooterInfo(myTable));
 
@@ -56,6 +56,20 @@ namespace Tikoze
                 default:
                     break;
             }//end switch
+
+            //get the charts whether there is lyrics to display or not
+            //define the sql code for the charts
+            string chart1SQL = "SELECT TOP 5 ArtistName, MusicalReleaseName, SongName FROM MusicDatabaseView ORDER BY SongViews DESC;";
+            string chart2SQL = "SELECT TOP 5 * FROM MusicDatabaseView ORDER BY SongDate DESC;";
+            string chart3SQL = string.Empty;
+
+            //Get the Chart Titles
+            string chart1Title = "5 Most Popular Songs";
+            string chart2Title = "5 Most Recent Songs";
+            
+            chart1.InnerHtml = CreateChart(chart1Title, chart1SQL);
+            chart2.InnerHtml = CreateChart(chart2Title, chart2SQL);
+            //chart3.InnerHtml = CreateChart("Most Shared Songs", chart3SQL);
 
         }//end Page_Load()
 
@@ -116,6 +130,40 @@ namespace Tikoze
             Response.Redirect(url, true);
 
         }//Search_Click() 
+
+
+        //the CreateChart lyrics is a duplicate method from the page Default.aspx.cs page. It is best to have it called from a class.
+        public string CreateChart(string chartTitle, string chartSQL)
+        {
+            string chart = string.Empty;
+
+            //get the formatted chart title
+            chart = Format.GetChartTitle(chartTitle);
+
+            /*********************************************************************
+                Parameterize the SQL, search the database, then build the chart               
+             *********************************************************************/
+            //create SqlConnection object with database connection string 
+            SqlConnection connection = new SqlConnection(Database.GetConnectionString());
+
+            //parameterize the query
+            Music chartObj = new Music();
+            SqlCommand cmd = Database.ParameterizeQuery(chartSQL, chartObj);
+
+            //search database
+            DataTable myTable = Database.Search(cmd, connection);
+
+            //get the body of the chart
+            string chartBody = Format.ProcessChart(myTable);
+
+            /*********************************************************************            
+                END Parameterize the SQL, search the database, then build the chart              
+             *********************************************************************/
+            //add the body of the chart to the title
+            chart += chartBody;
+
+            return chart;
+        }//end CreateChart()
 
     }//end class Display : System.Web.UI.Page
 }//end namespace Tikoze
