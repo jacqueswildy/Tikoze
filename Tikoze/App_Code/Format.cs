@@ -162,7 +162,8 @@ namespace Tikoze
 
              foreach (DataRow dataRow in myTable.Rows) 
              {
-                 songBody += "<div style ='line-height:80%;'>" + dataRow["SongLyrics"] + "</div>";
+                 songBody += "<div runat=\"" + "server" + " class=\"" + "" + " style ='line-height:80%;'>";
+                 songBody += dataRow["SongLyrics"] + "</div>";
              }//end foreach
 
              return songBody;
